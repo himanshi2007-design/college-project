@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EcoReward Foundation 🌱</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+html { scroll-behavior: smooth; }
+
+:root {
+    --accent: #22c55e;
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #e2e8f0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(15,23,42,0.95);
+    position: sticky;
+    top: 0;
+}
+
+nav h2 { color: var(--accent); }
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+header h1 {
+    color: var(--accent);
+    font-size: 3rem;
+}
+
+.hero-btn {
+    margin-top: 20px;
+    padding: 12px 22px;
+    background: var(--accent);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* STATS */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.stat-number {
+    font-size: 2rem;
+    color: var(--accent);
+}
+
+/* SECTION */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+}
+
+section {
+    background: var(--card);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+}
+
+/* WORK */
+.work-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    width: 250px;
+    padding: 1.5rem;
+    background: #0f172a;
+    border-radius: 12px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: cardUp 0.8s ease forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+.card:nth-child(4) { animation-delay: 0.8s; }
+
+/* LEADERBOARD */
+.leader-item {
+    display: flex;
+    justify-content: space-between;
+    background: #0f172a;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: leaderUp 0.6s ease forwards;
+}
+
+/* REGISTER */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    padding: 10px;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+}
+
+/* SOCIAL */
+.social {
+    text-align: center;
+}
+
+/* CHAT */
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--accent);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.chat-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    background: var(--card);
+    display: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.chat-box {
+    height: 250px;
+    overflow-y: auto;
+}
+
+.input-area {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.message {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.bot { background: #334155; }
+.user { background: var(--accent); color: black; }
+
+/* ANIMATION */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s ease forwards;
+}
+
+/* SCROLL ANIMATION */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+} 
+
+
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes leaderUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>🌱 EcoReward</h2>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#work">Work</a></li>
+<li><a href="#leaderboardSection">Leaderboard</a></li>
+<li><a href="#register">Register</a></li>
+</ul>
+</nav>
+
+<header id="home" class="fade-in">
+<h1>EcoReward Foundation 🌱</h1>
+<p>
+🌍 Be the change — help make our planet 
+<span class="highlight">cleaner, greener, and sustainable</span>
+</p>
+
+<p style="margin-top:15px;">
+📸 Upload waste • ♻️ Learn classification • 🏆 Earn rewards • 🌱 Save environment
+</p>
+
+<p style="margin-top:15px;">
+Turn your daily actions into meaningful impact — every small step counts!
+</p>
+<div class="stats">
+<div><span class="stat-number" data-target="500">0</span><p>Users</p></div>
+<div><span class="stat-number" data-target="1000">0</span><p>Recycled</p></div>
+<div><span class="stat-number" data-target="50">0</span><p>Campaigns</p></div>
+</div>
+</header>
+
+<div class="container">
+
+<section id="about" class="hidden">
+<h2>About</h2>
+<p>
+EcoReward Foundation is a <span class="highlight">technology-driven environmental initiative</span> 
+that encourages individuals to actively participate in saving the planet 🌱.
+</p>
+
+<br>
+
+<p>
+Our platform empowers users to upload images of waste materials and instantly learn whether they are 
+<span class="highlight">recyclable, biodegradable, or non-recyclable</span>, promoting better waste management habits.
+</p>
+
+<br>
+
+<p>
+We combine awareness with action by introducing a <span class="highlight">reward-based system</span> where users 
+earn points for eco-friendly activities and climb the leaderboard 🏆.
+</p>
+
+<br>
+
+<p>
+Our vision is to build a global community where sustainability becomes a habit, not a choice 🌍.
+</p>
+
+</section>
+
+<section id="work" class="hidden">
+<h2>Our Work</h2>
+<p style="text-align:center; margin-bottom:20px;">
+We actively create impact through both real-world actions and digital innovation:
+</p>
+<div class="work-grid">
+<div class="card"><h2>🧹 Clean Drives</h2>
+<p>
+We organize community cleaning campaigns to remove waste from public areas and promote hygiene awareness.
+</p></div>
+<div class="card">
+<h2>🌳 Tree Plantation</h2>
+<p>
+We plant trees to improve air quality, reduce pollution, and restore ecological balance.
+</p>
+</div>
+<div class="card"><h2>♻️ Recycling</h2>
+<p>
+We educate individuals on proper waste segregation and recycling practices for sustainable living.
+</p></div>
+<div class="card"><h2>🏆 Rewards</h2>
+<p>
+Users upload eco-friendly activities and earn points, making sustainability engaging and fun.
+</p>
+</div>
+</section>
+<section id="leaderboardSection" class="hidden">
+<h2>Leaderboard 🏆</h2>
+<div id="leaderboard"></div>
+</section>
+
+<section id="register" class="hidden">
+<h2>Register</h2>
+<form onsubmit="register(event)">
+<input id="name" placeholder="Name" required>
+<input placeholder="Email" required>
+<button>Join</button>
+</form>
+</section>
+
+<div class="social">
+<p>Share 🌍</p>
+</div>
+
+</div>
+
+<!-- CHAT -->
+<div class="chat-icon" onclick="toggleChat()">🤖</div>
+
+<div class="chat-window" id="chat">
+<div class="chat-box" id="chatBox"></div>
+
+<div class="input-area">
+<input type="file" id="fileInput">
+<button onclick="sendFile()">Upload</button>
+</div>
+</div>
+
+<script>
+
+/* COUNTER */
+document.querySelectorAll(".stat-number").forEach(counter=>{
+let target = +counter.dataset.target;
+let count = 0;
+function update(){
+count += target/100;
+if(count < target){
+counter.innerText = Math.ceil(count);
+requestAnimationFrame(update);
+}else{
+counter.innerText = target;
+}
+}
+update();
+});
+
+let name = localStorage.getItem("name") || "User";
+let totalPoints = parseInt(localStorage.getItem("points")) || 0;
+
+function save(){
+localStorage.setItem("name", name);
+localStorage.setItem("points", totalPoints);
+updateLeaderboard();
+}
+
+function register(e){
+e.preventDefault();
+name = document.getElementById("name").value;
+save();
+alert("Registered!");
+}
+
+function updateLeaderboard(){
+let data = [
+{name:"Rahul",points:50},
+{name:"Sneha",points:40},
+{name:name,points:totalPoints}
+];
+
+data.sort((a,b)=>b.points-a.points);
+
+let board="";
+data.forEach((u,i)=>{
+board += `<div class="leader-item" style="animation-delay:${i*0.2}s">
+${i+1}. ${u.name} <span>${u.points} pts</span></div>`;
+});
+
+document.getElementById("leaderboard").innerHTML = board;
+}
+
+function toggleChat(){
+let c=document.getElementById("chat");
+c.style.display = c.style.display==="block"?"none":"block";
+}
+
+function addUserMessage(text){
+let div=document.createElement("div");
+div.className="message user";
+div.innerText=text;
+chatBox.appendChild(div);
+chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function addBotMessage(text){
+let div=document.createElement("div");
+div.className="message bot";
+div.innerText=text;
+chatBox.appendChild(div);
+chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function classifyWaste(filename) {
+  const recyclable = [ "plastic","bottle","can","metal","glass","paper","cardboard",
+    "newspaper","magazine","notebook","carton","box","aluminum",
+    "tin","steel","jar","container","milkpacket","tetrapack",
+    "book","envelope","bagpaper","packaging","wrapper"];
+  const biodegradable = [ "plastic","bottle","can","metal","glass","paper","cardboard",
+    "newspaper","magazine","notebook","carton","box","aluminum",
+    "tin","steel","jar","container","milkpacket","tetrapack",
+    "book","envelope","bagpaper","packaging","wrapper"];
+  const nonRecyclable = [ "banana","peel","vegetable","fruit","leaves","tea","coffee",
+    "flowers","grass","food","leftover","bread","rice","egg",
+    "eggshell","wood","plant","organic","wastefood","fruitpeel",
+    "vegetablepeel","compost","gardenwaste","leaf","herbs"];
+
+  for (let item of recyclable) {
+    if (filename.includes(item)) return { category: "Recyclable ♻️", points: 10 };
+  }
+  for (let item of biodegradable) {
+    if (filename.includes(item)) return { category: "Biodegradable 🍃", points: 5 };
+  }
+  for (let item of nonRecyclable) {
+    if (filename.includes(item)) return { category: "Non-Recyclable ❌", points: 0 };
+  }
+
+  return { category: "Unknown ❓", points: 0 };
+}
+
+function sendFile(){
+let file=document.getElementById("fileInput").files[0];
+if(!file) return alert("Select file!");
+
+addUserMessage("Uploaded: "+file.name);
+
+setTimeout(()=>{
+let result = classifyWaste(file.name.toLowerCase());
+totalPoints += result.points;
+
+addBotMessage(
+`Category: ${result.category}
+Points: ${result.points}
+Total: ${totalPoints}`
+);
+
+save();
+},1000);
+}
+
+updateLeaderboard();
+
+setTimeout(()=>{
+addBotMessage("Hello! 🌱 Upload waste file name to earn points!");
+},500);
+
+/* SCROLL ANIMATION */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+
+
+</script>
+
+</body>
+</html>
